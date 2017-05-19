@@ -1,0 +1,1 @@
+{"iceServers":[{"url":"stun:23.21.150.121","urls":"stun:23.21.150.121"},{"url":"turn:global.turn.twilio.com:3478?transport=udp","username":"2011e8071cb48c76ab17b35bf776a31a0c341ab1170faac3a5bf67295720b2bc","credential":"bMoFJsMV/I54f+xx0RQM3pPjanTnzCC0byXt9Pi/pAw=","urls":"turn:global.turn.twilio.com:3478?transport=udp"}]}

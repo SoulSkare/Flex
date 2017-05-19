@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Niga pls</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Stream movies and TV shows in excellent DVD, 720p, 1080p and 3D quality right in your browser at ultrafast speeds.">
+    <meta name="keywords" content="webflix, movie, movies, stream, streaming, torrent, torrents, tv, show, episode, web, flix, popcorn, express, popcorn express, popcornexpress, popcorn time, popcorntime, cinefi, yify, yify-torrents, yts, download, 720p, 1080p, 3D">
+    <meta property="og:title" content="webflix.me">
+    <meta property="og:image:url" content="http://webflix.me/css/img/screenshot.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:height" content="447">
+    <meta property="og:image:width" content="675">
+    <meta property="og:description" content="Stream movies and TV shows in excellent DVD, 720p, 1080p and 3D quality right in your browser at ultrafast speeds.">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Comfortaa:300" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="./css/app.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        ! function(e, a, t, n, c, o, s) {
+            e.GoogleAnalyticsObject = c, e[c] = e[c] || function() {
+                (e[c].q = e[c].q || []).push(arguments)
+            }, e[c].l = 1 * new Date, o = a.createElement(t), s = a.getElementsByTagName(t)[0], o.async = 1, o.src = n, s.parentNode.insertBefore(o, s)
+        }(window, document, "script", "//www.google-analytics.com/analytics.js", "ga"), ga("create", "UA-60368588-1", "auto"), ga("send", "pageview");
+    </script>
+</head>
+
+<body>
+    <div id="sidebar" class="navigable-pane" data-pane-number="0"><a id="sidebar-bookmarks" class="navigable-item"><i class="icon-heart"></i> Bookmarks</a> <a id="sidebar-history" class="navigable-item"><i class="icon-history"></i> History</a>
+        <hr><a id="sidebar-search" class="navigable-item"><i class="icon-search"></i> Search</a> <a id="sidebar-movies" class="navigable-item"><i class="icon-film"></i> Movies</a> <a id="sidebar-tv-shows" class="navigable-item"><i class="icon-tv"></i> TV</a> <a id="sidebar-downloads"><i class="icon-download"></i> Downloads</a>
+        <div id="sidebar-foot"><span id="open-info" class="sidebar-foot-link simptip-position-top simptip-fade simptip-smooth" title="Info" data-tooltip="Info"><i class="icon-info"></i></span> <span id="open-settings" class="sidebar-foot-link simptip-position-top simptip-fade simptip-smooth" title="Settings" data-tooltip="Settings"><i class="icon-cog"></i></span> <span id="sidebar-donate" class="sidebar-foot-link simptip-position-top simptip-fade simptip-smooth" title="Donate with Bitcoin" data-tooltip="Donate"><i class="icon-bitcoin"></i></span>
+            <div id="sidebar-donate-popover" style="display:none"><a id="sidebar-donate-popover-close" class="sidebar-foot-link">&times;</a>
+                <h2>Thanks for using <span class="brand">webflix.me</span>!</h2>
+                <p>If you would like to contribute to the project, please feel free to send some bitcoin our way! Any donations are hugely appreciated.</p>
+                <input value="vJmuDaTdUSmLnbcWUJRSsXdydCQ5QQgQWxidVpP5XRXqTCz7xSeGDP359kczDjC3UpQMbHjioeY1tKjNd6LhfPZt8i41T3iZ45SA4u"> <a href="bitcoin:vJmuDaTdUSmLnbcWUJRSsXdydCQ5QQgQWxidVpP5XRXqTCz7xSeGDP359kczDjC3UpQMbHjioeY1tKjNd6LhfPZt8i41T3iZ45SA4u" class="btn sidebar-foot-link">DONATE NOW</a></div>
+            <div id="sidebar-share">
+                <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+                    <a class="a2a_button_facebook sidebar-foot-link"></a>
+                    <a class="a2a_button_twitter sidebar-foot-link"></a>
+                    <a class="a2a_dd sidebar-foot-link" href="https://www.addtoany.com/share_save"></a>
+                </div>
+                <script type="text/javascript">
+                    var a2a_config = a2a_config || {};
+                    a2a_config.num_services = 10, a2a_config.color_main = "1e1e1e", a2a_config.color_border = "1e1e1e", a2a_config.color_link_text = "dddddd", a2a_config.color_link_text_hover = "ffffff", a2a_config.color_bg = "111111", a2a_config.color_arrow = "fff", a2a_config.color_arrow_hover = "fff";
+                </script>
+                <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+            </div>
+        </div>
+    </div>
+    <div id="bookmarks" class="main" style="display:none">
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-film"></i> Movies</h2>
+            <div id="movie-bookmarks-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="movie-bookmarks-results" class="results-page search-results navigable-pane" data-pane-number="1" data-loading-indicator="#movie-bookmarks-loading-indicator"></div>
+        </div>
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-tv"></i> TV shows</h2>
+            <div id="tv-bookmarks-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="tv-bookmarks-results" class="results-page search-results navigable-pane" data-pane-number="2" data-loading-indicator="#tv-bookmarks-loading-indicator"></div>
+        </div>
+    </div>
+    <div id="history" class="main" style="display:none">
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-film"></i> Movies</h2>
+            <div id="movie-history-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="movie-history-results" class="results-page search-results navigable-pane" data-pane-number="1" data-loading-indicator="#movie-history-loading-indicator"></div>
+        </div>
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-tv"></i> TV shows</h2>
+            <div id="tv-history-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="tv-history-results" class="results-page search-results navigable-pane" data-pane-number="2" data-loading-indicator="#tv-history-loading-indicator"></div>
+        </div>
+    </div>
+    <div id="search-results" class="main" style="display:none">
+        <form id="search-bar">
+            <label for="keywords"><i class="icon-search"></i></label>
+            <input id="keywords" type="text" autocomplete="off" placeholder="Search for TV shows or movies...">
+        </form>
+        <div id="search-bar-advanced">
+            <label for="search-genre">Genre:</label>
+            <select id="search-genre">
+                <option selected="selected">All</option>
+                <option data-movie-genre="Action" data-tv-genre="Action & Adventure">Action</option>
+                <option data-movie-genre="Adventure" data-tv-genre="Action & Adventure">Adventure</option>
+                <option data-movie-genre="Animation" data-tv-genre="Animation">Animation</option>
+                <option data-movie-genre="Comedy" data-tv-genre="Comedy">Comedy</option>
+                <option data-movie-genre="Crime" data-tv-genre="Crime">Crime</option>
+                <option data-movie-genre="Documentary" data-tv-genre="Documentary">Documentary</option>
+                <option data-movie-genre="Drama" data-tv-genre="Drama">Drama</option>
+                <option data-movie-genre="Family" data-tv-genre="Family">Family</option>
+                <option data-movie-genre="Fantasy" data-tv-genre="Sci-Fi & Fantasy">Fantasy</option>
+                <option data-movie-genre="Horror" data-tv-genre="Mystery">Horror</option>
+                <option data-movie-genre="Mystery" data-tv-genre="Mystery">Mystery</option>
+                <option data-movie-genre="Romance" data-tv-genre="Romance">Romance</option>
+                <option data-movie-genre="Science Fiction" data-tv-genre="Sci-Fi & Fantasy">Sci-Fi</option>
+                <option data-movie-genre="Thriller" data-tv-genre="Thriller">Thriller</option>
+                <option data-movie-genre="Western" data-tv-genre="Western">Western</option>
+                <option data-movie-genre="War" data-tv-genre="War & Politics">War</option>
+            </select>
+            <label for="search-sort">Sort by:</label>
+            <select id="search-sort">
+                <option data-sort="popularity" data-sort-order="desc" selected="selected">Popularity</option>
+                <option data-sort="rating" data-sort-order="desc">Rating</option>
+                <option data-sort="date" data-sort-order="desc">Newest</option>
+                <option data-sort="date" data-sort-order="asc">Oldest</option>
+            </select>
+        </div>
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-film"></i> Movies</h2>
+            <div id="movie-search-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="movie-search-results" class="results-page search-results navigable-pane" data-pane-number="1" data-loading-indicator="#movie-search-loading-indicator"></div>
+        </div>
+        <div class="media-search">
+            <h2 class="search-media-title"><i class="icon-tv"></i> TV shows</h2>
+            <div id="tv-search-loading-indicator" class="spinner-ellipsis" style="display:none">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+            <div id="tv-search-results" class="results-page search-results navigable-pane" data-pane-number="2" data-loading-indicator="#tv-search-loading-indicator"></div>
+        </div>
+    </div>
+    <div id="results" class="main results-page navigable-pane" data-pane-number="1" data-loading-indicator="#results-loading-indicator" style="display:none"></div>
+    <div id="results-loading-indicator" class="spinner-ellipsis" style="display:none">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+    <div id="downloads" class="main" style="display:none">
+        <div>
+            <h2>Downloads</h2>
+            <form id="add-torrent-form" class="clearfix">
+                <input id="add-torrent-link" type="text" value="" placeholder="Enter a magnet uri or a link to a .torrent file..."> <a id="add-torrent-start" class="btn" style="float:right">ADD</a></form>
+            <hr>
+            <table style="display:none">
+                <tr id="torrent-list-row-template">
+                    <td class="torrent-list-name-container">
+                        <a class="torrent-list-name"></a>
+                    </td>
+                    <td class="torrent-list-size"><span>0 GB</span></td>
+                    <td class="torrent-list-speed"><span>0 KB/s</span></td>
+                    <td class="torrent-list-progress">
+                        <div class="progress">
+                            <div class="bar" style="width:0"></div>
+                            <div class="percentage">0%</div>
+                        </div>
+                    </td>
+                    <td class="actions"><a class="torrent-list-open-containing" title="Open containing folder"><i class="icon-folder-open"></i></a> <a class="torrent-list-start" title="Start download" style="display:none"><i class="icon-download-circle"></i></a> <a class="torrent-list-stop" title="Pause download"><i class="icon-pause-circle"></i></a> <a class="torrent-list-remove" title="Remove"><i class="icon-times-circle"></i></a></td>
+                </tr>
+            </table>
+            <table id="torrent-list"></table>
+        </div>
+    </div>
+    <div id="movie-details" class="media-details navigable-pane" data-pane-number="1" style="display:none">
+        <div id="movie-details-backdrop" class="media-details-backdrop"><img src=""></div>
+        <div id="movie-details-foreground" class="media-details-foreground">
+            <div class="close" onclick="fn.closeDetails()"><a>&times;</a></div>
+            <div class="left">
+                <div id="movie-details-poster" class="media-details-poster"><img src=""></div>
+            </div>
+            <div class="right">
+                <div id="movie-details-title" class="media-details-title"></div>
+                <div id="movie-details-subtitle" class="media-details-subtitle">
+                    <div id="movie-details-rating" class="media-details-info media-details-rating simptip-position-right simptip-fade simptip-smooth"></div>
+                    <div id="movie-details-year" class="media-details-year media-details-info"></div>
+                    <div id="movie-details-runtime" class="media-details-runtime media-details-info"></div>
+                    <div id="movie-details-genres" class="media-details-genres media-details-info"></div><a id="movie-details-trailer" class="media-details-info"><i class="icon-youtube-play" style="padding-right:2px"></i> Play Trailer</a></div>
+                <hr>
+                <div id="movie-details-actors" class="media-details-actors media-details-info"></div>
+                <div id="movie-details-similar" class="media-details-similar media-details-info" data-loading-indicator="#movie-details-similar-loading"></div>
+                <div id="movie-details-similar-loading" class="media-details-similar media-details-info">Loading similar movies...</div>
+                <hr>
+                <div id="movie-details-desc" class="media-details-desc"></div>
+                <div id="movie-details-quality">
+                    <label for="quality-switch" style="margin-right:5px">720p</label>
+                    <div class="onoffswitch" style="display:inline-block">
+                        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="quality-switch" checked="checked">
+                        <label class="onoffswitch-label" for="quality-switch">
+                            <div class="onoffswitch-inner"></div>
+                            <div class="onoffswitch-switch"></div>
+                        </label>
+                    </div>
+                    <label for="quality-switch" style="margin-left:5px">1080p</label>
+                </div><a id="movie-details-watch" class="media-details-btn btn-lg navigable-item">WATCH IT NOW</a></div>
+        </div>
+    </div>
+    <div id="tv-details" class="media-details" style="display:none">
+        <div id="tv-details-backdrop" class="media-details-backdrop"><img src=""></div>
+        <div id="tv-details-foreground" class="media-details-foreground">
+            <div class="close" onclick="fn.closeDetails()"><a>&times;</a></div>
+            <div class="left">
+                <div id="tv-details-poster" class="media-details-poster"><img src=""></div>
+            </div>
+            <div class="right">
+                <div id="tv-details-title" class="media-details-title"></div>
+                <div id="tv-details-subtitle" class="media-details-subtitle">
+                    <div id="tv-details-rating" class="media-details-info media-details-rating simptip-position-right simptip-fade simptip-smooth"></div>
+                    <div id="tv-details-year" class="media-details-year media-details-info"></div>
+                    <div id="tv-details-runtime" class="media-details-runtime media-details-info"></div>
+                    <div id="tv-details-genres" class="media-details-genres media-details-info"></div>
+                </div>
+                <hr>
+                <div id="tv-details-actors" class="media-details-actors media-details-info"></div>
+                <div id="tv-details-similar" class="media-details-similar media-details-info" data-loading-indicator="#tv-details-similar-loading"></div>
+                <div id="tv-details-similar-loading" class="media-details-similar media-details-info">Loading similar shows...</div>
+                <hr>
+                <div id="tv-details-desc" class="media-details-desc"></div>
+            </div>
+        </div>
+        <div id="tv-details-episode-select">
+            <div id="tv-details-season-container">
+                <div class="header">Seasons</div>
+                <ul id="tv-details-seasons" class="navigable-pane" data-pane-number="1"></ul>
+            </div>
+            <div id="tv-details-episodes-container">
+                <div class="header">Episodes <small id="tv-details-episodes-loading-indicator" style="display:none">Loading...</small></div>
+                <ul id="tv-details-episodes" class="navigable-pane" data-pane-number="2" data-loading-indicator="#tv-details-episodes-loading-indicator" style="display:none"></ul>
+            </div>
+            <div id="tv-details-episode-container" class="loading" style="display:none">
+                <div id="tv-details-episode-title" class="header"></div>
+                <div id="tv-details-episode">
+                    <div class="left">
+                        <div id="tv-details-episode-still"><img src=""></div>
+                        <div id="tv-details-episode-air-date"></div>
+                    </div>
+                    <div class="right">
+                        <div id="tv-details-episode-desc"></div>
+                    </div>
+                    <div id="tv-details-episode-watch" class="navigable-pane loading" data-pane-number="3"><a id="tv-details-episode-watch-btn" class="btn btn-lg navigable-item" onclick="fn.openModal(&quot;#tv-show-torrent-links-modal&quot;),app.nav.switchView(&quot;tv-torrents&quot;)">WATCH IT NOW</a> <a id="tv-details-episode-no-links-btn" class="btn btn-lg disabled">NO LINKS FOUND</a> <a id="tv-details-episode-loading-btn" class="btn btn-lg disabled">LOADING...</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="search-overlay" style="display:none">
+        <div id="search-overlay-bg"></div>
+        <div id="search-overlay-container" style="width:0">
+            <form id="search-overlay-form">
+                <input id="search-overlay-keywords" type="text" autocomplete="off" placeholder="Search for TV shows or movies..."> <a id="search-overlay-advanced" onclick="$(&quot;#search-overlay-keywords&quot;).submit()">Advanced</a></form>
+            <div id="search-overlay-result" class="search-overlay-result navigable-item" style="display:none">
+                <div class="left">
+                    <div class="search-overlay-result-poster"><img src=""></div>
+                </div>
+                <div class="right">
+                    <div class="search-overlay-result-title"></div>
+                    <div class="search-overlay-result-year"></div>
+                </div>
+            </div>
+            <div id="search-overlay-results" class="navigable-pane" data-pane-number="1"></div>
+        </div>
+    </div>
+    <div id="modal-bgB" class="modal-bg" style="display:none"><a class="close">&times;</a></div>
+    <div id="setup-modalB" class="modal" style="display:none">
+        <h2 class="modal-title brand">webflix.me</h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content" style="padding:0 20px">
+            <p id="setup-modal-chrome-issue" class="warning" style="display:none">Make sure to enable plugins in Google Chrome, <a onclick="fn.openModal(&quot;#chrome-issue-modal&quot;)">click here to find out how</a>.</p>
+            <p>Welcome to <span class="brand">webflix.me</span>! Here you can stream HD movies at ultrafast speeds (for free!) thanks to peer-to-peer sharing. <a href="http://en.wikipedia.org/wiki/BitTorrent_(protocol)" target="_blank">More info &raquo;</a></p>
+            <p>This service depends on the <a href="http://blog.bittorrent.com/2012/07/06/introducing-bittorrent-torque" target="_blank">Torque plugin</a> to enable the peer-to-peer system. Torque is a completely safe and legal plugin, developed by a trusted and reliable vendor, that runs in the background without ever interrupting your browsing experience.</p>
+            <p>If you are happy to install this plugin, hit the SETUP NOW button to begin using <span class="brand">webflix.me</span>.</p>
+            <p style="text-align:center"><small>This plugin supports all modern browsers including Chrome, Firefox, Safari and IE10+ on Windows and Mac. You may need to restart your browser once the installation has completed.</small>
+                <br><a id="setup-torque" class="btn-lg">SETUP NOW</a></p>
+            <p class="warning"><strong>Warning</strong>: Streaming movies in this way might not be legal in your country, so use this service at your own risk.</p>
+            <p style="text-align:center"><small>By using <span class="brand">webflix.me</span>, you agree to the <a href="#" onclick="fn.openModal(&quot;#tos-modal&quot;)">Terms of Service</a></small></p>
+        </div>
+    </div>
+    <div id="chrome-issue-modal" class="modal" style="z-index:101;display:none">
+        <h2 class="modal-title">Plugins in Google Chrome</h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content" style="padding:0 20px">
+            <p>If you are experiencing issues setting up the Torque plugin, please note that Google Chrome has recently disabled the use of plugins in it's latest update.</p>
+            <p>We're working hard on a fix but in the meantime, please use the following workaround to continue using <span class="brand">webflix.me</span>:</p>
+            <ol>
+                <li>
+                    <p>Enter <code>chrome://flags/#enable-npapi</code> into the Chrome address bar</p>
+                </li>
+                <li>
+                    <p>Re-enable the NPAPI plugin setting by clicking 'Enable'</p>
+                </li>
+                <li>
+                    <p>Hit 'Relaunch Now' at the bottom of the page.</p>
+                </li>
+            </ol>
+            <p>Alternatively, you could make the switch to <a href="https://www.apple.com/safari" target="_blank">Safari</a> or <a href="http://mozilla.com/firefox" target="_blank">Firefox</a>.</p>
+            <p>For more information on Google's decision to disable this setting by default, <a href="http://blog.chromium.org/2013/09/saying-goodbye-to-our-old-friend-npapi.html" target="_blank">read the blog post here</a>.</p>
+        </div>
+    </div>
+    <div id="settings-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Settings</h2>
+        <div class="modal-desc"><span class="brand">webflix.me</span> 3.3.5</div>
+        <hr>
+        <form class="modal-content" id="settings">
+            <h3 class="control control-header">Interface</h3>
+            <div class="control">
+                <label for="keyboard-shortcuts">Enable keyboard shortcuts</label><a id="open-keyboard-shortcuts"><i class="icon-info"></i></a>
+                <input id="keyboard-shortcuts" data-storage-id="settings-keyboard-shortcuts" type="checkbox" checked="checked">
+            </div>
+            <div class="control">
+                <label for="default-subtitle-language">Default subtitle language</label>
+                <select id="default-subtitle-language" data-storage-id="settings-default-subtitle-language">
+                    <option value="none" selected="selected">None</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="eu">Basque</option>
+                    <option value="ca">Català</option>
+                    <option value="sr">Cрпски</option>
+                    <option value="da">Dansk</option>
+                    <option value="de">Deutsch</option>
+                    <option value="et">Eesti keel</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="eo">Esperanto</option>
+                    <option value="fr">Français</option>
+                    <option value="gl">Galego</option>
+                    <option value="ka">Georgian</option>
+                    <option value="hr">Hrvatski jezik</option>
+                    <option value="is">Icelandic</option>
+                    <option value="it">Italiano</option>
+                    <option value="hu">Magyar</option>
+                    <option value="ms">Malay</option>
+                    <option value="nl">Nederlands</option>
+                    <option value="no">Norsk</option>
+                    <option value="oc">Occitan</option>
+                    <option value="pl">Polski</option>
+                    <option value="pt">Português</option>
+                    <option value="pb">Português (BR)</option>
+                    <option value="ro">Română</option>
+                    <option value="sq">Shqip</option>
+                    <option value="sk">Slovenčina</option>
+                    <option value="sl">Slovenščina</option>
+                    <option value="fi">Suomi</option>
+                    <option value="sv">Svenska</option>
+                    <option value="tl">Tagalog</option>
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="cs">Čeština</option>
+                    <option value="el">Ελληνικά</option>
+                    <option value="bg">български език</option>
+                    <option value="mk">македонски јазик</option>
+                    <option value="ru">русский язык</option>
+                    <option value="uk">українська мова</option>
+                    <option value="he">עִבְרִית</option>
+                    <option value="ar">العربية</option>
+                    <option value="fa">فارسی</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="si">සිංහල</option>
+                    <option value="th">ภาษาไทย</option>
+                    <option value="km">ភាសាខ្មែរ</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">汉语</option>
+                    <option value="zt">漢語</option>
+                    <option value="ko">한국어</option>
+                </select>
+            </div>
+            <hr>
+            <h3 class="control control-header">Downloads</h3>
+            <div class="control">
+                <label for="keep-downloaded-files">Keep downloaded files</label>
+                <input id="keep-downloaded-files" data-storage-id="settings-keep-downloaded-files" type="checkbox" checked="checked">
+            </div>
+            <div class="control">
+                <label for="default-download-directory">Default download location</label>
+                <input id="default-download-directory" data-storage-id="settings-default-download-directory" type="text" value="">
+            </div>
+            <div class="control">
+                <label for="max-download-speed">Download limit <small>(0 = No limit)</small></label><span class="append">Kb/s</span>
+                <input id="max-download-speed" class="append" data-storage-id="settings-max-download-speed" type="number" value="0" min="0">
+            </div>
+            <div class="control">
+                <label for="max-upload-speed">Upload limit <small>(0 = No limit)</small></label><span class="append">Kb/s</span>
+                <input id="max-upload-speed" class="append" data-storage-id="settings-max-upload-speed" type="number" value="0" min="0">
+            </div>
+            <hr>
+            <div style="float:right"><a id="settings-reset" class="btn btn-r">RESET</a></div>
+        </form>
+    </div>
+    <div id="info-modal" class="modal modal-wide" style="display:none">
+        <h2 class="modal-title">About <span class="brand">webflix.me</span></h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content">
+            <div>
+                <h3 class="faq-title">What is <span class="brand">webflix.me</span>?</h3>
+                <div class="faq-content"><span class="brand">webflix.me</span> is a free, web-based media player that can be used to watch HD movies and TV shows online at superfast speeds.</div>
+                <hr>
+                <h3 class="faq-title">How does it work?</h3>
+                <div class="faq-content">It works by leveraging peer-to-peer technology to stream video files from a network of other users - as opposed to a central server. This is known as the BitTorrent protocol and is a safe and widely used way of sharing files. <a href="http://en.wikipedia.org/wiki/BitTorrent_(protocol)" target="_blank">More info &raquo;</a></div>
+                <hr>
+                <h3 class="faq-title">Is it legal?</h3>
+                <div class="faq-content"><span class="brand">webflix.me</span> is primarily a front-end for a torrent client, which in essence is legal. However, using this technology to share copyrighted materials is not legal in every country. For this reason, <strong style="text-decoration:underline">you must check that copyright law in your country permits you to use this service before you continue</strong>. For more information on the legality of file sharing in your country, <a href="http://en.wikipedia.org/wiki/Legal_aspects_of_file_sharing#Statute_and_case_law_by_jurisdiction" target="_blank">click here</a>.</div>
+            </div>
+            <div>
+                <h3 class="faq-title">Which browsers are supported?</h3>
+                <div class="faq-content"><span class="brand">webflix.me</span> now supports all modern browsers, including Chrome, Firefox, Safari and IE10+ on Windows and Mac. Yay!</div>
+                <hr>
+                <h3 class="faq-title">Where does <span class="brand">webflix.me</span> get its data?</h3>
+                <div class="faq-content">There is no data stored on the <span class="brand">webflix.me</span> server other than the files required to run the application - all other data is pulled from other services. Torrents for movies are indexed by <a href="http://yts.to" target="_blank">YIFY Torrents</a> and torrents for TV shows are indexed by <a href="http://kickass.to" target="_blank">Kickass Torrents</a>. This data is then combined with information from <a href="http://www.themoviedb.org" target="_blank">TMDB</a> and <a href="http://opensubtitles.org" target="_blank">OpenSubtitles.org</a> to produce a clean and simple interface.</div>
+                <hr>
+                <h3 class="faq-title">Is this in any way affiliated with Popcorn Time or Time4Popcorn?</h3>
+                <div class="faq-content">No. This application was written completely from scratch to provide the best possible web-based torrent streaming service.</div>
+            </div>
+            <div>
+                <h3 class="faq-title">What is Torque?</h3>
+                <div class="faq-content">Torque is a completely safe and legal plugin, developed by BitTorrent. It is an interface-less torrent client that runs in the background alongside your browser to provide torrent technology to <span class="brand">webflix.me</span>.</div>
+                <hr>
+                <h3 class="faq-title">Why am I being told that I need to install VLC media player?</h3>
+                <div class="faq-content">Certain TV shows are encoded in a way that means they can't be played natively by your browser. Because of this, any files that are in the <code>.avi</code> format will require the VLC player to be installed before they can be streamed on the web.</div>
+                <hr>
+                <h3 class="faq-title">Terms of Service</h3>
+                <div class="faq-content">By using <span class="brand">webflix.me</span> you signify your agreement to the <a href="#" onclick="fn.openModal(&quot;#tos-modal&quot;)">Terms of Service</a>.</div>
+            </div>
+        </div>
+    </div>
+    <div id="tos-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Terms of Service</h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content">
+            <p>These terms of service govern your use of the web application webflix.me ("Application"). The Application is a web-based application solely designed to act as a front-end for the torrent client, Torque - as well as a service to collect and collate media metadata and information.</p>
+            <p>The term "the user" applies to any site visitor who wishes to proceed surfing the site once arriving at webflix.me.</p>
+            <h3>Your Acceptance</h3>
+            <p>By using the Application you signify your agreement to these terms and conditions (the "Terms of Service"). Our terms of service are to be taken into consideration and adhered to at all times whilst using the site. All users are advised that access to this site and the use of the services detailed therein are strictly conditional upon your confirmation that you comply fully with our terms of use. By proceeding to access the Application or otherwise use this site, you signify your unequivocal acceptance of these and any other terms prevailing at this or at any future time.</p>
+            <h3>Ability to Accept the Terms of Service</h3>
+            <p>All users warrant that they are 18 years of age or older, and, therefore, qualified to enter into this agreement either as an individual or as a corporate entity.</p>
+            <h3>Content</h3>
+            <p>The Application does not host, provide, archive, store, distribute or even index media of any kind, and acts merely as a front-end (or interface) to collect and collate media posted by other webmasters on the internet, which is completely outside of our control. Whereas we do not filter such references, we cannot and do not attempt to control, censor, or block any indexed material that may be considered offensive, abusive, libellous, obnoxious, inaccurate, deceptive, unlawful or otherwise distressing neither do we accept responsibility for this content or the consequences of such content being made available. Material may be inappropriately described or subject to restrictions such as copyright, licensing and other limitations and it is the sole responsibility of those having access to such material to comply with any or all lawful obligations arising from such material coming into their possession and, thus mitigate any alleged transgression. All users undertake to comply with the national laws applicable to the country they reside in and observe the rights inherent in any copyright material whilst upholding the rights of any copyright owner. All users are advised to use caution, discretion, common sense and personal judgment when using the Application or any references detailed within it and to respect the wishes of others who may value freedom from censorship, as consenting adults equal to (or possibly superior to) your own personal preferences.</p>
+            <h3>Quality of Service</h3>
+            <p>webflix.me does not provide commercial services and there are no actual or implied guarantees as to the availability of service or the speed, operation or function of this site, which is offered on a basis to those who choose to comply with the terms detailed within and access the "free" contents of this site. You expressly agree that your use of the Application is at your sole risk. The Application and all products are provided to you "as is" without warranties of any kind, either express or implied. webflix.me is not responsible for any problems or technical malfunction of any website, network, computer systems, servers, providers, computer equipment, or software, or for any failure due to technical problems or traffic congestion on the internet or the Application or combination thereof, including any injury or damage to users or to any computer or other device on or through which the Application is provided. Under no circumstances will the Application be liable for any loss or damage, including personal injury or death, resulting from your use of the Application.</p>
+        </div>
+    </div>
+    <div id="keyboard-shortcuts-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Keyboard Shortcuts</h2>
+        <div class="modal-desc">
+            <p>With keyboard shortcuts enabled, you can navigate <span class="brand">webflix.me</span> using these simple controls.</p>
+        </div>
+        <hr>
+        <div class="modal-content">
+            <table id="keyboard-shortcuts-table">
+                <tr>
+                    <th colspan="2">
+                        <h3>Global</h3></th>
+                    <th colspan="2">
+                        <h3>Player</h3></th>
+                </tr>
+                <tr>
+                    <td><kbd>&larr;</kbd>,&nbsp;<kbd>&darr;</kbd>,&nbsp;<kbd>&larr;</kbd>,&nbsp;<kbd>&rarr;</kbd></td>
+                    <td>Navigate</td>
+                    <td><kbd class="wide">Space</kbd>,&nbsp;<kbd>p</kbd></td>
+                    <td>Play/Pause</td>
+                </tr>
+                <tr>
+                    <td><kbd>Enter</kbd></td>
+                    <td>Select item</td>
+                    <td><kbd>&larr;</kbd>&nbsp;/&nbsp;<kbd>&rarr;</kbd></td>
+                    <td>Rewind/Forward</td>
+                </tr>
+                <tr>
+                    <td><kbd>Esc</kbd></td>
+                    <td>Close/Back</td>
+                    <td><kbd>&uarr;</kbd>&nbsp;/&nbsp;<kbd>&darr;</kbd></td>
+                    <td>Volume up/down</td>
+                </tr>
+                <tr>
+                    <td><kbd>q</kbd></td>
+                    <td>Search</td>
+                    <td><kbd>f</kbd></td>
+                    <td>Toggle fullscreen</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="tv-show-torrent-links-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Sources</h2>
+        <div class="modal-desc">
+            <p>Choose one of the following links to begin streaming.</p>
+            <p class="warning">Note: These links were obtained using popular torrent sources on the internet, however they have not been verified by <span class="brand">webflix.me</span>. Proceed at your own risk.</p>
+        </div>
+        <div class="modal-content" style="padding:0">
+            <div id="tv-show-torrent-link-template" class="link navigable-item" style="display:none">
+                <div class="link-name"></div>
+                <div class="link-detailed"></div>
+                <div class="link-info"><span class="link-info-basic"><i class="icon-bolt"></i></span> <span class="link-info-detailed"></span></div>
+            </div>
+            <div id="tv-show-torrent-links" class="navigable-pane link-list" data-pane-number="0"></div>
+        </div>
+    </div>
+    <div id="tv-show-season-torrent-links-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Sources</h2>
+        <div class="modal-desc">
+            <p>Choose one of the following links to begin streaming a full season. This can be useful if there are no links for the episode you want.</p>
+            <p class="warning">Note: These links were obtained using popular torrent sources on the internet, however they have not been verified by <span class="brand">webflix.me</span>. Proceed at your own risk.</p>
+        </div>
+        <div class="modal-content" style="padding:0">
+            <div id="tv-show-season-torrent-link-template" class="link navigable-item" style="display:none">
+                <div class="link-name"></div>
+                <div class="link-detailed"></div>
+                <div class="link-info"><span class="link-info-basic"><i class="icon-bolt"></i></span> <span class="link-info-detailed"></span></div>
+            </div>
+            <div id="tv-show-season-torrent-links" class="navigable-pane link-list" data-pane-number="0"></div>
+        </div>
+    </div>
+    <div id="file-list-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Multiple files found</h2>
+        <div class="modal-desc">This torrent contains multiple files that can be streamed by the application, please select one below to continue.</div>
+        <hr>
+        <div class="modal-content">
+            <div id="file-select-list" class="navigable-pane link-list" data-pane-number="0"></div>
+        </div>
+    </div>
+    <div id="no-files-warning-modal" class="modal" style="display:none">
+        <h2 class="modal-title">Invalid torrent</h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content"><span class="brand">webflix.me</span> couldn't find any valid video files in this torrent, sorry.</div>
+    </div>
+    <div id="vlc-install-modal" class="modal" style="display:none">
+        <h2 class="modal-title">VLC plugin required</h2>
+        <div class="modal-desc"></div>
+        <hr>
+        <div class="modal-content">
+            <p>This particular video requires an additional plugin to be installed before you can play it in your browser.</p>
+            <p>To install the required VLC Web Plugin, click the button below. After installation, please restart your browser and you will be able to watch this video.</p>
+            <p></p>
+            <p style="text-align:center"><a href="http://www.videolan.org" class="btn-lg" target="_blank">INSTALL NOW</a></p>
+        </div>
+    </div>
+    <div id="youtube-modal" class="modal modal-wide" style="display:none">
+        <iframe id="youtube-player" type="text/html" frameborder="0"></iframe>
+    </div>
+    <div id="player" class="modal modal-full" style="display:none">
+        <div id="videojs-container">
+            <video id="videojs-player" class="video-js vjs-default-skin" controls autoplay preload="metadata" width="auto" height="auto" data-setup="{}">
+                <track id="video-srt" kind="subtitles"></track>
+            </video>
+        </div>
+        <div id="projekktor-container">
+            <video id="projekktor-player" class="projekktor" controls autoplay width="auto" height="auto"></video>
+        </div>
+    </div>
+    <div id="next-episode-intro" style="display:none"><span id="next-episode-intro-title">Playing next episode...</span>
+        <div id="next-episode" class="clearfix">
+            <div class="left"><img id="next-episode-still" src="">
+                <div id="next-episode-air-date"></div>
+            </div>
+            <div class="right">
+                <div id="next-episode-title"></div>
+                <p id="next-episode-description"></p>
+                <div id="next-episode-torrent"><span id="next-episode-torrent-quality" class="simptip-position-bottom simptip-fade simptip-smooth"><i class="icon-bolt"></i></span>
+                    <div id="next-episode-torrent-link"></div>
+                </div>
+                <div><a id="next-episode-cancel-btn" class="btn">CANCEL</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="status" style="display:none"><span id="status-text">Connecting...</span>
+        <div id="status-progress">
+            <div class="bar" style="width:0"></div>
+        </div>
+        <div id="status-loading-indicator" style="display:none">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+        <div id="status-cancel" style="display:none"><a class="btn">CANCEL</a></div>
+        <div id="download-stats" class="download-stats">
+            <div class="download-stats-basic">
+                <div class="signal-bar signal-bar-1"></div>
+                <div class="signal-bar signal-bar-2"></div>
+                <div class="signal-bar signal-bar-3"></div>
+            </div>
+            <div class="download-stats-advanced">
+                <table>
+                    <tbody>
+                        <tr class="download-stats-preloading">
+                            <td colspan="2">Preloading the next episode&hellip;</td>
+                        </tr>
+                        <tr>
+                            <td>File:</td>
+                            <td class="download-stats-filename"></td>
+                        </tr>
+                        <tr>
+                            <td>Progress:</td>
+                            <td>
+                                <div class="progress download-stats-progress">
+                                    <div class="bar" style="width:0"></div>
+                                    <div class="percentage">0%</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Speed:</td>
+                            <td>
+                                <div class="download-stats-speed-chart"></div>
+                                <div class="download-stats-speed"></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript"> 
+            ! function() {
+                void 0 === window.CHITIKA && (window.CHITIKA = {
+                    units: []
+                });
+                var t = {
+                        calltype: "async[2]",
+                        publisher: "popcornexpress",
+                        width: 728,
+                        height: 90,
+                        sid: "Chitika Default",
+                        color_site_link: "08c5ff",
+                        color_text: "ffffff",
+                        color_bg: "000000",
+                        color_button: "1e8fff",
+                        color_button_text: "ffffff"
+                    },
+                    o = window.CHITIKA.units.length;
+                window.CHITIKA.units.push(t), document.write('<div id="chitikaAdBlock-' + o + '" style="position: absolute;bottom: 0;left: 50%;margin-left: -364px;"></div>')
+            }();
+        </script>
+        <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+    </div>
+    <script type="text/javascript" src="js/vendor.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
