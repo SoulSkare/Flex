@@ -1,2 +1,2 @@
 # Flex
-WebRTC based Movie/TV app and streamer
+NodeJS - WebRTC based Movie/TV app and streamer
